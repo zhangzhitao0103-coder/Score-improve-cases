@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>有道领世名师团提分案例</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231677FF'/%3E%3Cpath d='M8 21h16M8 16h10M8 11h16' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="page-shell">
+    <section class="hero">
+      <div class="hero-visual left">
+        <div class="chart-card"><span></span><span></span><span></span></div>
+        <div class="arrow-line"></div>
+      </div>
+      <div class="hero-copy">
+        <h1>有道领世名师团提分案例</h1>
+        <p>高效学习 从有道领世开始</p>
+      </div>
+      <div class="hero-visual right">
+        <div class="clipboard"><span></span><span></span><span></span></div>
+        <div class="shield"></div>
+      </div>
+    </section>
+
+    <div class="app-layout">
+      <aside class="sidebar">
+        <section class="control-panel teacher-panel">
+          <div class="panel-title"><i class="icon teacher-icon"></i>老师选择</div>
+          <div class="combo" data-combo="teacher">
+            <input id="teacherInput" autocomplete="off" placeholder="输入或选择老师">
+            <button class="combo-toggle" type="button" aria-label="展开老师列表"></button>
+            <div id="teacherMenu" class="combo-menu" role="listbox"></div>
+          </div>
+        </section>
+
+        <section class="control-panel filter-panel">
+          <div class="panel-title"><i class="icon score-icon"></i>筛选条件</div>
+          <label class="field">
+            <span class="field-label">分数段</span>
+            <div class="combo" data-combo="score">
+              <input id="scoreInput" autocomplete="off" value="不限">
+              <button class="combo-toggle" type="button" aria-label="展开分数段列表"></button>
+              <div id="scoreMenu" class="combo-menu" role="listbox"></div>
+            </div>
+          </label>
+          <label class="field">
+            <span class="field-label">省份</span>
+            <div class="combo" data-combo="province">
+              <input id="provinceInput" autocomplete="off" value="不限">
+              <button class="combo-toggle orange" type="button" aria-label="展开省份列表"></button>
+              <div id="provinceMenu" class="combo-menu" role="listbox"></div>
+            </div>
+          </label>
+          <div class="filter-actions">
+            <button id="searchBtn" class="primary-btn" type="button"><span class="search-mark"></span>立即筛选</button>
+            <button id="resetBtn" class="secondary-btn" type="button"><span class="reset-mark"></span>重置条件</button>
+          </div>
+        </section>
+      </aside>
+
+      <section class="content-main">
+        <section class="content-section">
+          <header class="section-header">
+            <div class="section-title">
+              <span class="section-icon"></span>
+              <h2>老师个人介绍</h2>
+            </div>
+            <p id="teacherMeta"></p>
+          </header>
+          <div id="profileGrid" class="card-grid poster-grid"></div>
+        </section>
+
+        <section class="content-section">
+          <header class="section-header">
+            <div class="section-title">
+              <span class="section-icon document"></span>
+              <h2>提分案例结果</h2>
+            </div>
+            <p id="resultMeta"></p>
+          </header>
+          <div id="caseGrid" class="card-grid"></div>
+          <div id="emptyState" class="empty-state" hidden>
+            <strong>暂无匹配案例</strong>
+            <span>可切换分数段、省份或老师后再次筛选。</span>
+          </div>
+        </section>
+      </section>
+    </div>
+  </main>
+
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button id="lightboxClose" class="lightbox-close" type="button" aria-label="关闭预览"></button>
+    <img id="lightboxImage" alt="">
+    <div id="lightboxCaption" class="lightbox-caption"></div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="./data.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
