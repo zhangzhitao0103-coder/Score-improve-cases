@@ -19,7 +19,14 @@ const lightboxCaption = document.querySelector("#lightboxCaption");
 const lightboxClose = document.querySelector("#lightboxClose");
 
 const collator = new Intl.Collator("zh-Hans-CN", { numeric: true, sensitivity: "base" });
-const teachers = [...data.teachers].sort((a, b) => collator.compare(a.name, b.name));
+const subjectOrder = ["语文", "数学", "英语", "物理", "化学", "生物", "历史", "地理", "政治"];
+const teachers = [...data.teachers].sort((a, b) => {
+  const subjectRankA = subjectOrder.indexOf(a.subject);
+  const subjectRankB = subjectOrder.indexOf(b.subject);
+  const rankA = subjectRankA === -1 ? subjectOrder.length : subjectRankA;
+  const rankB = subjectRankB === -1 ? subjectOrder.length : subjectRankB;
+  return rankA - rankB || collator.compare(a.name, b.name);
+});
 let activeTeacher = teachers[0];
 
 function teacherLabel(teacher) {
